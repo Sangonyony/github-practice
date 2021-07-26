@@ -1,0 +1,77 @@
+package modifier;
+
+import java.util.Scanner;
+
+// Ticket 클래스를 만든다.
+// Ticket 클래스는 seatNumber 필드와 mainMachine() 메소드가 있다.
+// 좌석수(seatNumber)는 4자리 남은걸로 하자.
+// mainMachine 메소드는 티켓을 구입하는 메소드이다.
+// mainMachine 메소드는 매개변수로 티켓수를 받고 좌석이 티켓수만큼 줄어들게 해보자
+// 티켓수가 0장까지 남은 티켓잔여수를 알려주자
+
+class Ticket {
+
+	private static int seatNumber = 4;
+	// 표를 예매할 때 좌석이 공유되어야 한다.
+	
+	public void mainMachine(int ticketSu) {
+		seatNumber -= ticketSu;
+		if(seatNumber >= 0) {
+			System.out.println("현재 티켓 잔여수는 : " + seatNumber);
+		}else {
+			System.out.println("티켓이 모두 판매되었습니다.");
+			System.out.println("티켓판매 시스템을 종료합니다.");
+			System.exit(0);
+		}
+	}
+}
+
+public class Ex04 {
+
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner(System.in);
+		
+		Ticket ticketMachine1 = new Ticket();
+		Ticket ticketMachine2 = new Ticket();
+		
+		while(true) {
+			
+			System.out.println("티켓머신 2개 중 어떤 기계로 사용할까요?");
+			System.out.println("(1)첫번째머신 (2)두번째머신");
+			int choice = scan.nextInt();
+			
+			if(choice == 1) {
+				System.out.println("티켓을 구입하시겠습니까?");
+				System.out.println("(1)YES (2)NO");
+				int purchase = scan.nextInt();
+				if(purchase == 1) {
+					ticketMachine1.mainMachine(1);
+				}else {
+					System.out.println("감사합니다. 좋은여행되세요");
+					break;
+				}
+			}else if(choice == 2) {
+				System.out.println("티켓을 구입하시겠습니까?");
+				System.out.println("(1)YES (2)NO");
+				int purchase = scan.nextInt();
+				if(purchase == 1) {
+					ticketMachine2.mainMachine(1);
+				}else {
+					System.out.println("감사합니다. 좋은여행되세요");
+					break;
+				}	
+			}else {
+				System.out.println("잘못입력 하셨습니다.");
+				continue;
+			}
+		}
+		
+		
+		
+		
+		
+
+	}
+
+}
