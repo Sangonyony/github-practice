@@ -1,0 +1,54 @@
+package modifier;
+
+import java.util.Scanner;
+
+class Cafe {
+
+	private static int totalCount = 0; //공유되는 필드
+	private int count = 0; // 객체마다 가지고 있는 필드
+
+	private String cafeName = "JAVA";
+	public String nickName;
+
+	public Cafe(String nickName) { //생성자
+		this.nickName = nickName;
+		System.out.println(cafeName + "카페에 방문하였습니다.");
+		totalCount++;
+		count++;
+}
+
+	public void disp() {
+		System.out.println("우리카페 전체방문자수는 : " + totalCount + "이고");
+		System.out.println(nickName + "님의 방문 횟수는 : " + count + "입니다.");
+	}
+
+}
+
+public class Ex03 {
+
+	public static void main(String[] args) {
+
+		Scanner scan = new Scanner(System.in);
+
+		System.out.println("자바 카페에 방문합니다.");
+		System.out.print("닉네임을 입력 : ");
+		String nickName1 = scan.next();
+
+		Cafe cafe1 = new Cafe(nickName1);
+		cafe1.disp();
+
+		System.out.println("새로운 아이디로 로그인했습니다.");
+		System.out.print("다른 닉네임을 입력 : ");
+		String nickName2 = scan.next();
+
+		Cafe cafe2 = new Cafe(nickName2);
+		cafe2.disp();
+
+		System.out.println("방문을 종료합니다.");
+
+		scan.close();
+
+
+	}
+
+}
