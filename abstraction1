@@ -1,0 +1,73 @@
+package abstraction;
+
+abstract class Car {
+	
+	String color;
+	int speed;
+	
+	public Car(String color, int speed) { // 생성자에서 매개변수로 데이터를 받아서 필드에 초기화
+		this.color = color;
+		this.speed = speed;
+	}
+	
+	public abstract void work();
+	
+	public abstract void disp();
+	
+}
+
+// Sedan 클래스를 만들고 Car클래스를 상속받는다.
+// 추상메소드 오버라이딩해서 실행부를 채워주세요.
+
+class Sedan extends Car {
+	
+	public Sedan(String color, int speed) {
+		super(color, speed);
+	}
+	
+	@Override
+	public void work() {
+		System.out.println("승용차가 사람을 태우고 있습니다.");
+	}
+	
+	@Override
+	public void disp() {
+		System.out.println("세단은 " + color + "색이고 " + speed + "의 속도를 낼 수 있습니다.");
+		
+	}
+}
+
+// Truck 클래스를 만들고 Car클래스를 상속받는다.
+// 추상메소드 오버라이딩해서 실행부를 채워주세요.
+
+class Truck extends Car {
+	
+	public Truck(String color, int speed) {
+		super(color, speed);
+	}
+	
+	@Override
+	public void work() {
+		System.out.println("트럭이 사람을 태우고 있습니다.");
+	}
+	
+	@Override
+	public void disp() {
+		System.out.println("트럭은 " + color + "색이고 " + speed + "의 속도를 낼 수 있습니다.");
+	}
+}
+
+public class Ex02 {
+	
+	public static void main(String[] args) {
+		
+		Sedan sedan = new Sedan("검정", 300);// Car sedan = new Sedan("검정", 300);
+											// 이렇게 해도 됨 - 다형성
+		sedan.disp();
+		sedan.work();
+		Truck truck = new Truck("파랑", 100);
+		truck.disp();
+		truck.work();
+	}
+
+}
