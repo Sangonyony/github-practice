@@ -1,0 +1,26 @@
+package exception;
+
+public class Ex04 {
+	
+	public void call(int j) throws ArrayIndexOutOfBoundsException{
+							// throws는 호출한 곳에서 예외처리
+		
+		int[] i = {1, 2, 3}; // int타입의 배열
+		System.out.println("call value : " + i[j]); // i배열의 j번째 값 불러오기
+	}
+
+	public static void main(String[] args) {
+		
+		Ex04 ex04 = new Ex04();
+		
+		try {
+		ex04.call(5); // call 메소드 호출
+		}catch(ArrayIndexOutOfBoundsException e) {
+			System.out.println("배열 크기에 맞는 값을 입력하세요");
+			e.printStackTrace(); // 에러내용출력
+		}finally { // Exception 여부와 상관없이 수행
+			System.out.println("해당 문장은 무조건 수행");
+		}
+	}
+
+}
