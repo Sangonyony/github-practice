@@ -1,0 +1,55 @@
+package set;
+
+import java.util.*;
+
+class SimpleNumber {
+	
+	int num;
+	
+	public SimpleNumber(int num) {
+		this.num = num;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof SimpleNumber) {
+			SimpleNumber simple = (SimpleNumber)obj;
+			boolean bool = this.num == simple.num;
+			return bool;
+		}else {
+			return false;
+		}
+		
+	}
+	
+	@Override
+	public int hashCode() {
+		return num;
+	}
+	
+}
+
+public class Ex03 {
+
+	public static void main(String[] args) {
+		
+		HashSet<SimpleNumber> set = new HashSet<SimpleNumber>();
+		
+		set.add(new SimpleNumber(30));
+		set.add(new SimpleNumber(20));
+		set.add(new SimpleNumber(30));
+		
+		System.out.println("저장된 객체의 수 : " + set.size());
+		
+		Iterator<SimpleNumber> setIter = set.iterator();
+		
+		while(setIter.hasNext()) {
+			
+			SimpleNumber simple = setIter.next();
+			System.out.println(simple.num);
+		}
+		
+
+	}
+
+}
