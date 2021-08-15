@@ -1,0 +1,34 @@
+package map;
+
+import java.util.*;
+
+public class Ex02 {
+
+	public static void main(String[] args) {
+		// HashMap을 이용해서 과목하고 성적을 입력
+		// 과목 : 국어, 영어, 수학, 자바
+		// 과목 >> String 성적 >> Integer
+		// key값을 사용해서 value를 출력해보자
+		
+		HashMap<String, Integer> map = new HashMap<>();
+		
+		map.put("국어", 90);
+		map.put("영어", 77);
+		map.put("수학", 85);
+		map.put("자바", 100);
+		
+		int kor = map.get("국어");
+		System.out.println("국어의 점수는 : " + kor);
+		
+		int eng = map.get("영어");
+		System.out.println("영어의 점수는 : " + eng);
+		
+		int math = map.get("수학");
+		System.out.println("수학의 점수는 : " + math);
+		
+		int java = map.get("자바");
+		System.out.println("자바의 점수는 : " + java);
+		
+	}
+
+}
