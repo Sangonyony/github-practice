@@ -1,0 +1,62 @@
+package map;
+
+import java.util.*;
+
+class Food {
+	
+	private String food;
+	
+	public Food(String food) {
+		this.food = food;
+	}
+	
+	public String getFood() {
+		return food;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof Food) {
+			Food food = (Food)obj;
+			return this.food.equals(food.food);
+		}else {
+			return false;
+		}
+	}
+	
+	@Override
+	public int hashCode() {
+		return food.hashCode();
+	}
+}
+
+public class Ex05 {
+
+	public static void main(String[] args) {
+		
+		Map<Food, Integer> map = new HashMap<>();
+		
+		map.put(new Food("치킨"), 4);
+		map.put(new Food("갈비"), 7);
+		map.put(new Food("라면"), 10);
+		map.put(new Food("김치찌개"), 6);
+		map.put(new Food("치킨"), 10);
+		
+		Set<Food> keySet = map.keySet();
+		
+		Iterator<Food> keyIter = keySet.iterator();
+		
+		while(keyIter.hasNext()) {
+			
+			Food food = keyIter.next();
+			
+			int number = map.get(food);
+			
+			System.out.println("내가 한달에 먹는 음식 >> " + food.getFood() 
+									+ " : " + number);
+			
+		}
+
+	}
+
+}
